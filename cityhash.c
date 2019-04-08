@@ -34,12 +34,12 @@
 
 #define likely(x) (__builtin_expect(!!(x), 1))
 
-#ifdef LITTLE_ENDIAN
-#define uint32_t_in_expected_order(x) (x)
-#define uint64_t_in_expected_order(x) (x)
-#else
+#ifdef WORDS_BIGENDIAN
 #define uint32_t_in_expected_order(x) (bswap32(x))
 #define uint64_t_in_expected_order(x) (bswap64(x))
+#else
+#define uint32_t_in_expected_order(x) (x)
+#define uint64_t_in_expected_order(x) (x)
 #endif
 
 #define PERMUTE3_32(a, b, c)                                                   \
