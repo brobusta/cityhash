@@ -1,4 +1,4 @@
-package cityhash_v1_0_2
+package cityhash
 
 /*
 #include <stdint.h>

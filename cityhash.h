@@ -40,6 +40,10 @@
 // faster than CityHash on some relatively recent AMD x86-64 CPUs, for example.
 // Note that CityHashCrc128 is declared in citycrc.h.
 //
+// For 32-bit x86 code, we don't know of anything faster than CityHash32 that
+// is of comparable quality.  We believe our nearest competitor is Murmur3A.
+// (On 64-bit CPUs, it is typically faster to use the other CityHash variants.)
+//
 // Functions in the CityHash family are not suitable for cryptography.
 //
 // Please see CityHash's README file for more details on our performance
@@ -86,6 +90,9 @@ uint128_t cityhash128(const uint8_t* s, size_t len);
 // hash function for a byte array, for convenience a 128-bit seed is also
 // hashed into the result
 uint128_t cityhash128_with_seed(const uint8_t* s, size_t len, uint128_t seed);
+
+// hash function for a byte array, most useful in 32-bit binaries
+uint32_t cityhash32(const uint8_t* buf, size_t len);
 
 // hash 128 input bits down to 64 bits of output
 // this is intended to be a reasonably good hash function
