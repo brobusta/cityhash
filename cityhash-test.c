@@ -18,8 +18,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#include <stdint.h>
+#if defined(UNIT_TESTING)
 
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -1336,7 +1337,6 @@ void test(const uint64_t expected[16], int offset, int len) {
 //  printf("0x%x},\n", cityhash32(data + offset, len));
 //}
 
-#if defined(UNIT_TESTING)
 int main(int argc, char* argv[]) {
 
   setup();
