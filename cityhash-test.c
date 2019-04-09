@@ -18,6 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if defined(UNIT_TESTING)
+
 #include <stdint.h>
 
 #include <stdio.h>
@@ -1033,7 +1035,6 @@ void test(const uint64_t expected[15], int offset, int len) {
 //
 //}
 
-#if defined(UNIT_TESTING)
 int main(int argc, char* argv[]) {
 
   setup();
